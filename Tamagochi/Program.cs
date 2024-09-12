@@ -1,4 +1,6 @@
-﻿System.Console.WriteLine("Welcome to Tamagochi");
+﻿using System.Runtime.InteropServices.Marshalling;
+
+System.Console.WriteLine("Welcome to Tamagochi");
 System.Console.WriteLine("Name your new Tamagochi");
 
 Tamagochi Tama = new Tamagochi();
@@ -15,9 +17,53 @@ while(Tama.GetAlive() == true)
 {
     Console.Clear();
     Tama.PrintStats();
+    System.Console.WriteLine("What do you want to do?\n");
+    System.Console.WriteLine($"1. Teach {Tama.Name} a new word.");
+    System.Console.WriteLine($"2. Talk to {Tama.Name}.");
+    System.Console.WriteLine($"3. Feed {Tama.Name}.");
+    System.Console.WriteLine($"4. Do nothing :(");
+
+    string action = Console.ReadLine();
+
+    if (action == "1")
+    {
+        System.Console.WriteLine("Which word do you want to teach me?");
+        string word = Console.ReadLine();
+        while (string.IsNullOrEmpty(word))
+        {
+            System.Console.WriteLine("Don't you wnat to teach me a new word :(");
+            word = Console.ReadLine();
+        }
+        Tama.Teach(word);
+    }
+
+    if (action == "2")
+    {
+        Tama.Hi();
+    }
+
+    if (action == "3")
+    {
+        Tama.Feed();
+    }
+
+    if (action == "4")
+    {
+        System.Console.WriteLine("Not doing anything :(");
+    }
+
+
+
+
+
+    Tama.Tick();
+    Thread.Sleep(400);
+    System.Console.WriteLine("\nPress enter to continue");
+    Console.ReadLine();
 }
 
-
+System.Console.WriteLine($"OH NO, {Tama.Name} died");
+System.Console.WriteLine("Press Enter to quit the game");
 
 
 Console.ReadLine();
