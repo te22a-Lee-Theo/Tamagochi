@@ -22,6 +22,7 @@ while(Tama.GetAlive() == true)
     System.Console.WriteLine($"2. Talk to {Tama.Name}.");
     System.Console.WriteLine($"3. Feed {Tama.Name}.");
     System.Console.WriteLine($"4. Do nothing :(");
+    System.Console.WriteLine($"5. Play a game with {Tama.Name}.");
 
     string action = Console.ReadLine();
 
@@ -47,9 +48,15 @@ while(Tama.GetAlive() == true)
         Tama.Feed();
     }
 
-    if (action == "4")
+    if (action == "4" || string.IsNullOrEmpty(action))
     {
         System.Console.WriteLine("Not doing anything :(");
+    }
+
+    if (action == "5")
+    {
+        System.Console.WriteLine("Let's play a game of Rock, Paper, Scissors");
+        Tama.Play();
     }
 
 

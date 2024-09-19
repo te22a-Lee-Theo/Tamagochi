@@ -65,4 +65,26 @@ public class Tamagochi
             Boredom = 0;
         }
     }
+
+    public void Play()
+    {
+        List<string> choises = new List<string>() {"Rock", "Paper", "Scissors"};
+        int qwer = Random.Shared.Next(choises.Count);
+        string TamaChoise = choises[qwer];
+
+        string PlayerChoise = Console.ReadLine().ToLower();
+        while (PlayerChoise != "rock" || PlayerChoise != "paper" || PlayerChoise != "scissors")
+        {
+            System.Console.WriteLine("Invalid input");
+            PlayerChoise = Console.ReadLine().ToLower();
+        }
+
+        if (PlayerChoise == TamaChoise)
+        {
+            System.Console.WriteLine("It's a tie");
+        }
+        if ()
+
+        // System.Console.WriteLine(qwert);
+    }
 }
